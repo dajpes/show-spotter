@@ -6,7 +6,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**", "biome.json", "!**/package.json"]
+		"includes": ["**", "biome.json", "!**/package.json", "!**/globals.css"]
 	},
 	"formatter": {
 		"enabled": true,
@@ -16,7 +16,8 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true
-		}
+		},
+		"includes": ["!**/globals.css"]
 	},
 	"javascript": {
 		"formatter": {

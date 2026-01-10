@@ -4,6 +4,7 @@ import { cookies } from 'next/headers'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import type { LocaleLanguages } from './packages/discovery/components/LocaleSwitcher'
+import { ThemeProvider } from './packages/shared/components/ThemeProvider'
 
 export const metadata: Metadata = {
 	title: 'Show Spotter Mini App',
@@ -20,11 +21,13 @@ export default async function RootLayout({
 	const messages = await getMessages()
 
 	return (
-		<html lang={locale}>
+		<html lang={locale} suppressHydrationWarning>
 			<body className="antialiased">
-				<NextIntlClientProvider messages={messages}>
-					{children}
-				</NextIntlClientProvider>
+				<ThemeProvider>
+					<NextIntlClientProvider messages={messages}>
+						{children}
+					</NextIntlClientProvider>
+				</ThemeProvider>
 			</body>
 		</html>
 	)

@@ -31,7 +31,7 @@ export default function SearchEvent({ onSubmit }: Props) {
 					value={searchQuery}
 					onChange={(e) => setSearchQuery(e.target.value)}
 					placeholder={__('search.placeholder')}
-					className="w-full rounded-lg border border-gray-300 py-2 pl-4 pr-24 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+					className="w-full rounded-lg border border-gray-300 bg-white py-2 pl-4 pr-24 text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-400 dark:focus:border-blue-400"
 				/>
 				<button
 					type="submit"

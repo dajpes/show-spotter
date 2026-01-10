@@ -2,5 +2,10 @@
 	"base": {
 		"ok": "Ok",
 		"error": "Error"
+	},
+	"theme": {
+		"light": "Light",
+		"dark": "Dark",
+		"toggle": "Toggle theme"
 	}
 }

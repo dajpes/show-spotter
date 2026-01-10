@@ -2,5 +2,10 @@
 	"base": {
 		"ok": "Ok",
 		"error": "Error"
+	},
+	"theme": {
+		"light": "Claro",
+		"dark": "Oscuro",
+		"toggle": "Cambiar tema"
 	}
 }
