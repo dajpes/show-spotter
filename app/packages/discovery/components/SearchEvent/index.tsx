@@ -3,12 +3,19 @@
 import { useTranslations } from 'next-intl'
 import { type FormEvent, useState } from 'react'
 
-export default function SearchEvent() {
+interface Props {
+	onSubmit?: (query: string) => void
+}
+
+export default function SearchEvent({ onSubmit }: Props) {
 	const __ = useTranslations()
 	const [searchQuery, setSearchQuery] = useState('')
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
+		if (onSubmit) {
+			onSubmit(searchQuery)
+		}
 		console.log('Search query:', searchQuery)
 	}
 
