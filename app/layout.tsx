@@ -3,7 +3,7 @@ import './globals.css'
 import { cookies } from 'next/headers'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import type { LocaleLanguages } from './packages/discovery/components/LocaleSwitcher'
+import type { LocaleLanguages } from './packages/shared/components/LocaleSwitcher'
 import { ThemeProvider } from './packages/shared/components/ThemeProvider'
 
 export const metadata: Metadata = {

@@ -1,7 +1,9 @@
 import { cookies } from 'next/headers'
 import Link from 'next/link'
 import ThemeToggle from '@/app/packages/shared/components/ThemeToggle'
-import LocaleSwitcher, { type LocaleLanguages } from '../LocaleSwitcher'
+import LocaleSwitcher, {
+	type LocaleLanguages,
+} from '../../../shared/components/LocaleSwitcher'
 import SearchEvent from '../SearchEvent'
 
 export default async function DiscoveryLayout({

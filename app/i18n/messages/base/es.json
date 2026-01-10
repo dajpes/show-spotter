@@ -6,6 +6,12 @@
 	"theme": {
 		"light": "Claro",
 		"dark": "Oscuro",
-		"toggle": "Cambiar tema"
+		"toggle": "Cambiar a tema {themeName}"
+	},
+	"languages": {
+		"select": "Selecciona un idioma",
+		"en": "English",
+		"es": "Español",
+		"selected": "Seleccionado"
 	}
 }

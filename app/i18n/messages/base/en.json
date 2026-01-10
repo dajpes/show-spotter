@@ -6,6 +6,12 @@
 	"theme": {
 		"light": "Light",
 		"dark": "Dark",
-		"toggle": "Toggle theme"
+		"toggle": "Toggle theme to {themeName}"
+	},
+	"languages": {
+		"select": "Select a language",
+		"en": "English",
+		"es": "Spanish",
+		"selected": "Selected"
 	}
 }

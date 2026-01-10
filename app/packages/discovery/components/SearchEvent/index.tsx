@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '@headlessui/react'
 import { useTranslations } from 'next-intl'
 import { type FormEvent, useState } from 'react'
 
@@ -33,12 +34,12 @@ export default function SearchEvent({ onSubmit }: Props) {
 					placeholder={__('search.placeholder')}
 					className="w-full rounded-lg border border-gray-300 bg-white py-2 pl-4 pr-24 text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-400 dark:focus:border-blue-400"
 				/>
-				<button
+				<Button
 					type="submit"
-					className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md bg-blue-600 px-4 py-1 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+					className="cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 rounded-md bg-blue-600 px-4 py-1 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
 				>
 					{__('search.button')}
-				</button>
+				</Button>
 			</div>
 		</form>
 	)
