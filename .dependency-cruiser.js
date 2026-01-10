@@ -143,7 +143,7 @@ module.exports = {
 			from: {
 				path: '^(.)',
 				pathNot:
-					'[.](?:spec|test)[.](?:js|mjs|cjs|jsx|ts|mts|cts|tsx)$|jest\\.setup\\.ts$|testUtils\\.tsx?$',
+					'[.](?:spec|test|stories)[.](?:js|mjs|cjs|jsx|ts|mts|cts|tsx)$|jest\\.setup\\.ts$|testUtils\\.tsx?$',
 			},
 			to: {
 				dependencyTypes: ['npm-dev'],
