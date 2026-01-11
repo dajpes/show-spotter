@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import LocaleSwitcher from '.'
+import LanguageSelector from '.'
 
 const meta = {
-	title: 'Shared/LocaleSwitcher',
-	component: LocaleSwitcher,
-} satisfies Meta<typeof LocaleSwitcher>
+	title: 'Shared/LanguageSelector',
+	component: LanguageSelector,
+} satisfies Meta<typeof LanguageSelector>
 
 export default meta
 type Story = StoryObj<typeof meta>

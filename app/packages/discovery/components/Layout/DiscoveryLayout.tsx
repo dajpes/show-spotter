@@ -1,10 +1,6 @@
 import { cookies } from 'next/headers'
-import Link from 'next/link'
-import ThemeToggle from '@/app/packages/shared/components/ThemeToggle'
-import LocaleSwitcher, {
-	type LocaleLanguages,
-} from '../../../shared/components/LocaleSwitcher'
-import SearchEvent from '../SearchEvent'
+import type { languages } from '../../../shared/components/LanguageSelector'
+import DiscoveryLayoutShell from './DiscoveryLayoutShell'
 
 export default async function DiscoveryLayout({
 	children,
@@ -12,27 +8,11 @@ export default async function DiscoveryLayout({
 	children: React.ReactNode
 }) {
 	const cookieStore = await cookies()
-	const locale = (cookieStore.get('locale')?.value as LocaleLanguages) ?? 'en'
+	const language = (cookieStore.get('language')?.value as languages) ?? 'en'
 
 	return (
-		<div className="grid min-h-screen grid-rows-[auto_1fr]">
-			<header className="border-b border-gray-200">
-				<div className="mx-auto grid w-full max-w-screen-2xl grid-cols-[1fr_2fr_1fr] gap-4 p-4 align-center items-center">
-					<div>
-						<Link href="/">ShowSpotter</Link>
-					</div>
-					<div className="place-self-center w-full">
-						<SearchEvent />
-					</div>
-					<div className="place-self-end self-center flex gap-2">
-						<ThemeToggle />
-						<LocaleSwitcher initialLocale={locale} />
-					</div>
-				</div>
-			</header>
-			<div className="mx-auto grid w-full max-w-screen-2xl grid-cols-[1fr_2fr_1fr]">
-				<main className="col-start-2 px-4 py-8">{children}</main>
-			</div>
-		</div>
+		<DiscoveryLayoutShell currentLanguage={language}>
+			{children}
+		</DiscoveryLayoutShell>
 	)
 }

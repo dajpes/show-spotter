@@ -1,7 +1,21 @@
 {
 	"search": {
-		"placeholder": "Películas, Series, Conciertos, Eventos...",
+		"placeholder": "Series de TV",
 		"button": "Buscar",
 		"label": "Buscar series de TV"
+	},
+	"shows": {
+		"notFound": "No se encontraron series",
+		"todaysShows": "Series de Hoy",
+		"error": {
+			"title": "Algo salió mal!",
+			"button": "Intentar Nuevamente"
+		},
+		"loading": {
+			"ariaLabel": "Cargando series, por favor espera"
+		},
+		"show": {
+			"noImage": "No hay imagen"
+		}
 	}
 }

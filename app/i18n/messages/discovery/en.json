@@ -1,7 +1,21 @@
 {
 	"search": {
-		"placeholder": "Movies, TV Shows, Concerts, Events...",
+		"placeholder": "TV Shows",
 		"button": "Search",
-		"label": "Search for TV shows, Concerts, and Events"
+		"label": "Search for TV shows"
+	},
+	"shows": {
+		"notFound": "No shows found",
+		"todaysShows": "Today's Shows",
+		"error": {
+			"title": "Something went Wrong!",
+			"button": "Try Again"
+		},
+		"loading": {
+			"ariaLabel": "Loading shows, please wait"
+		},
+		"show": {
+			"noImage": "No Image"
+		}
 	}
 }

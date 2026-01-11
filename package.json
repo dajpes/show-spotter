@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NEXT_PUBLIC_MARKET=SP_US next dev",
+    "dev:us": "cross-env NEXT_PUBLIC_MARKET=SP_US next dev",
+    "dev:mx": "cross-env NEXT_PUBLIC_MARKET=SP_MX next dev",
     "build": "next build",
     "start": "next start",
     "lint": "biome check --write --error-on-warnings",
@@ -17,11 +19,14 @@
   "dependencies": {
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
+    "@reduxjs/toolkit": "^2.11.2",
     "js-cookie": "^3.0.5",
     "next": "16.1.1",
     "next-intl": "^4.7.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-redux": "^9.2.0",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.11",
@@ -39,6 +44,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.1.0",
     "dependency-cruiser": "^17.3.6",
     "husky": "^9.1.7",
     "jest": "^30.2.0",

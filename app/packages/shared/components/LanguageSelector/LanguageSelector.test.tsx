@@ -1,9 +1,9 @@
 import { render, screen } from '../../testUtils'
-import LocaleSwitcher from '.'
+import LanguageSelector from '.'
 
-describe('LocaleSwitcher', () => {
+describe('LanguageSelector', () => {
 	test('Button menu displays different languages', async () => {
-		const { user } = render(<LocaleSwitcher initialLocale="en" />)
+		const { user } = render(<LanguageSelector currentLanguage="en" />)
 		const menuButton = screen.getByRole('button', { name: 'Select a language' })
 
 		await user.click(menuButton)
@@ -15,7 +15,7 @@ describe('LocaleSwitcher', () => {
 	})
 
 	test('Should select language using keyboard', async () => {
-		const { user } = render(<LocaleSwitcher initialLocale="en" />)
+		const { user } = render(<LanguageSelector currentLanguage="en" />)
 
 		await user.keyboard('{tab}')
 		await user.keyboard('{enter}') // Opens menu
@@ -34,7 +34,7 @@ describe('LocaleSwitcher', () => {
 		expect(enOption).not.toHaveAttribute('data-focus')
 	})
 	test(`Should show 'selected' message when language is selected`, async () => {
-		const { user } = render(<LocaleSwitcher initialLocale="en" />)
+		const { user } = render(<LanguageSelector currentLanguage="en" />)
 		const menuButton = screen.getByRole('button', {
 			name: /Select a language/i,
 		})

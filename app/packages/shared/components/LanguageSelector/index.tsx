@@ -11,17 +11,19 @@ import { CheckIcon } from '@heroicons/react/24/outline'
 import Cookies from 'js-cookie'
 import { useTranslations } from 'next-intl'
 
-export type LocaleLanguages = 'en' | 'es'
+export type languages = 'en' | 'es'
 
-interface LocaleSwitcherProps {
-	initialLocale?: LocaleLanguages
+export interface LanguageSelectorProps {
+	currentLanguage?: languages
 }
 
-export default function LocaleSwitcher({ initialLocale }: LocaleSwitcherProps) {
+export default function LanguageSelector({
+	currentLanguage,
+}: LanguageSelectorProps) {
 	const __ = useTranslations()
 
-	const switchLocale = (locale: LocaleLanguages) => {
-		Cookies.set('locale', locale, { expires: 365, path: '/' })
+	const changeLanguage = (language: languages) => {
+		Cookies.set('language', language, { expires: 365, path: '/' })
 		window.location.reload()
 	}
 
@@ -37,10 +39,10 @@ export default function LocaleSwitcher({ initialLocale }: LocaleSwitcherProps) {
 				<MenuItem>
 					<Button
 						className="ui-button data-focus:bg-blue-100 dark:data-focus:bg-blue-800 w-full p-2 flex gap-2 place-items-center"
-						onClick={() => switchLocale('en')}
+						onClick={() => changeLanguage('en')}
 					>
 						{__('languages.en')}
-						{initialLocale === 'en' && (
+						{currentLanguage === 'en' && (
 							<>
 								<span className="sr-only">{__('languages.selected')}</span>
 								<CheckIcon className="text-blue-600 w-5 h-5" />
@@ -51,10 +53,10 @@ export default function LocaleSwitcher({ initialLocale }: LocaleSwitcherProps) {
 				<MenuItem>
 					<Button
 						className="ui-button data-focus:bg-blue-100 dark:data-focus:bg-blue-800 w-full p-2 flex gap-2 place-items-center"
-						onClick={() => switchLocale('es')}
+						onClick={() => changeLanguage('es')}
 					>
 						{__('languages.es')}
-						{initialLocale === 'es' && (
+						{currentLanguage === 'es' && (
 							<>
 								<span className="sr-only">{__('languages.selected')}</span>
 								<CheckIcon className="text-blue-600 w-5 h-5" />

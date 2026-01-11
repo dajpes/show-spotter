@@ -5,18 +5,14 @@ describe('SearchEvent', () => {
 	it('renders the search input with correct placeholder', () => {
 		render(<SearchEvent />)
 		const input = screen.getByRole('textbox', { name: /search/i })
-		expect(input.getAttribute('placeholder')).toMatch(
-			/Movies, TV Shows, Concerts, Events\.\.\./,
-		)
+		expect(input.getAttribute('placeholder')).toMatch(/TV Shows/)
 	})
 
 	it('calls onSubmit with search query on form submit', async () => {
 		const handleSubmit = jest.fn()
 		const { user } = render(<SearchEvent onSubmit={handleSubmit} />)
 
-		const input = screen.getByPlaceholderText(
-			/Movies, TV Shows, Concerts, Events\.\.\./,
-		) as HTMLInputElement
+		const input = screen.getByPlaceholderText(/TV Shows/) as HTMLInputElement
 
 		const button = screen.getByRole('button', { name: /search/i })
 
@@ -30,9 +26,7 @@ describe('SearchEvent', () => {
 		const handleSubmit = jest.fn()
 		const { user } = render(<SearchEvent onSubmit={handleSubmit} />)
 
-		const input = screen.getByPlaceholderText(
-			/Movies, TV Shows, Concerts, Events\.\.\./,
-		) as HTMLInputElement
+		const input = screen.getByPlaceholderText(/TV Shows/) as HTMLInputElement
 
 		await user.type(input, 'The Wire{Enter}')
 
