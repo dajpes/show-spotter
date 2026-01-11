@@ -6,7 +6,7 @@
 		"dev": "cross-env NEXT_PUBLIC_MARKET=SP_US next dev",
 		"dev:us": "cross-env NEXT_PUBLIC_MARKET=SP_US next dev",
 		"dev:mx": "cross-env NEXT_PUBLIC_MARKET=SP_MX next dev",
-		"build": "storybook build -o storybook-static && mv storybook-static public/storybook && next build",
+		"build": "cross-env STORYBOOK_BASE_URL=/storybook/ storybook build -o storybook-static && mv storybook-static public/storybook && next build",
 		"start": "next start",
 		"lint": "biome check --write --error-on-warnings",
 		"circular-deps": "depcruise --validate .dependency-cruiser.cjs .",
