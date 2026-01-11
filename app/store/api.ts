@@ -1,4 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { config } from '@/app/config'
+import type { ShowDetailsResponse } from '@/app/packages/shared/api/schemas/showDetails'
 
 interface Show {
 	id: number
@@ -21,7 +23,7 @@ interface SearchResult {
 
 export const api = createApi({
 	reducerPath: 'api',
-	baseQuery: fetchBaseQuery({ baseUrl: 'https://api.tvmaze.com' }),
+	baseQuery: fetchBaseQuery({ baseUrl: config.apiBaseUrl }),
 	endpoints: (builder) => ({
 		searchShows: builder.query<SearchResult[], string>({
 			query: (searchTerm) =>
@@ -30,5 +32,10 @@ export const api = createApi({
 		shows: builder.query<SearchResult[], void>({
 			query: () => `/schedule/web?country=US`,
 		}),
+		getShowById: builder.query<ShowDetailsResponse, string>({
+			query: (id) => `/shows/${id}`,
+		}),
 	}),
 })
+
+export const { useSearchShowsQuery, useGetShowByIdQuery } = api

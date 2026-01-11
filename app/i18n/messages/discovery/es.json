@@ -17,5 +17,17 @@
 		"show": {
 			"noImage": "No hay imagen"
 		}
+	},
+	"showDetails": {
+		"backToShows": "Volver a Series",
+		"network": "Cadena",
+		"streaming": "Streaming",
+		"schedule": "Horario",
+		"premiered": "Estreno",
+		"runtime": "Duración",
+		"officialSite": "Sitio Oficial",
+		"visitSite": "Visitar Sitio",
+		"notFound": "Serie No Encontrada",
+		"notFoundDesc": "La serie que buscas no existe."
 	}
 }
