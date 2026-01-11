@@ -66,7 +66,7 @@ export default function BrowseShows() {
 	if (allShows.length > 1) {
 		return (
 			<div className="flex flex-col gap-6">
-				<ShowsSection shows={allShows} />
+				<ShowsSection shows={allShows} title={__('shows.todaysShows')} />
 
 				{(isLoading || isFetching) && <ShowsCardsSkeletonList />}
 

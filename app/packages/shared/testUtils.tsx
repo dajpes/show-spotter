@@ -5,15 +5,19 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { NextIntlClientProvider } from 'next-intl'
+import { Provider } from 'react-redux'
 import * as translations from '../../i18n/messages/static-translations'
+import { store } from '../../store/store'
 
 const messages = Object.assign({}, ...Object.values(translations))
 
 const render = (Component: React.ReactNode, options?: RenderOptions) => {
 	const utils = testRender(
-		<NextIntlClientProvider locale="en" messages={messages}>
-			{Component}
-		</NextIntlClientProvider>,
+		<Provider store={store}>
+			<NextIntlClientProvider locale="en" messages={messages}>
+				{Component}
+			</NextIntlClientProvider>
+		</Provider>,
 		options,
 	)
 

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import type { ShowDetailsResponse } from '@/app/packages/shared/api/schemas/showDetails'
+import FavoriteButton from '../FavoriteButton'
 import Genres from '../Genres'
 import Rating from '../Rating'
 import ShowType from '../ShowType'
@@ -43,7 +44,10 @@ export default function ShowDetails({ show }: ShowDetailsViewProps) {
 				</div>
 
 				<div className="flex flex-col space-y-3">
-					<h1 className="text-3xl font-bold">{show.name}</h1>
+					<div className="flex items-center gap-3">
+						<h1 className="text-3xl font-bold">{show.name}</h1>
+						<FavoriteButton show={show} />
+					</div>
 
 					<div className="flex flex-wrap gap-2">
 						<ShowType type={show.type} />

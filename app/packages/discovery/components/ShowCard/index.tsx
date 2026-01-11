@@ -8,9 +8,10 @@ import ShowTypeBadge from '../ShowType'
 
 interface ShowCardProps {
 	show: Show
+	priority?: boolean
 }
 
-export default function ShowCard({ show }: ShowCardProps) {
+export default function ShowCard({ show, priority = false }: ShowCardProps) {
 	const __ = useTranslations()
 
 	return (
@@ -22,7 +23,9 @@ export default function ShowCard({ show }: ShowCardProps) {
 							src={show.image.medium}
 							alt=""
 							fill
-							loading="lazy"
+							sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+							preload={priority}
+							loading={priority ? 'eager' : 'lazy'}
 							className="object-cover group-hover:scale-105 transition-transform duration-300"
 						/>
 					) : (

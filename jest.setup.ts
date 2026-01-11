@@ -1,5 +1,17 @@
 import '@testing-library/jest-dom'
 
+// Mock fetch globally for RTK Query (fetchBaseQuery requires fetch)
+global.fetch = jest.fn(() =>
+	Promise.resolve({
+		json: () => Promise.resolve({}),
+		ok: true,
+		status: 200,
+	} as Response),
+)
+
+// Set required environment variables for tests
+process.env.NEXT_PUBLIC_MARKET = 'SP_US'
+
 // Mock window.matchMedia which is not available in JSDOM
 Object.defineProperty(window, 'matchMedia', {
 	writable: true,

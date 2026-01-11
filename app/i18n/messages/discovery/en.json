@@ -41,5 +41,13 @@
 			"title": "Runtime",
 			"duration": "{duration} min"
 		}
+	},
+	"favorites": {
+		"title": "My Favorites",
+		"loading": "Loading Favorites...",
+		"add": "Add {show} to favorites",
+		"remove": "Remove {show} from favorites",
+		"empty": "No favorites yet",
+		"emptyHint": "Start adding shows to see them here"
 	}
 }

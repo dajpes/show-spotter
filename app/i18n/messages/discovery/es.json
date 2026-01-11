@@ -41,5 +41,13 @@
 			"title": "Duración",
 			"duration": "{duration} min"
 		}
+	},
+	"favorites": {
+		"title": "Mis Favoritos",
+		"loading": "Cargando Favoritos...",
+		"add": "Agregar {show} a favoritos",
+		"remove": "Quitar {show} de favoritos",
+		"empty": "Aún no tienes favoritos",
+		"emptyHint": "Comienza agregando series para verlas aquí"
 	}
 }

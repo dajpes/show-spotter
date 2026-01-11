@@ -5,6 +5,7 @@ import ThemeToggle from '@/app/packages/shared/components/ThemeToggle'
 import LanguageSelector, {
 	type languages,
 } from '../../../shared/components/LanguageSelector'
+import FavoritesLink from '../FavoritesLink'
 import SearchEvent from '../SearchEvent'
 
 export default function DiscoveryLayoutShell({
@@ -24,7 +25,8 @@ export default function DiscoveryLayoutShell({
 					<div className="place-self-center w-full">
 						<SearchEvent />
 					</div>
-					<div className="place-self-end self-center flex gap-2">
+					<div className="place-self-end self-center flex gap-2 items-center">
+						<FavoritesLink />
 						<ThemeToggle />
 						<LanguageSelector currentLanguage={currentLanguage} />
 					</div>

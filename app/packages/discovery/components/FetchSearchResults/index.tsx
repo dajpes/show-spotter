@@ -64,5 +64,10 @@ export default function FetchSearchResults() {
 		)
 	}
 
-	return <ShowsSection shows={normalizedResults} />
+	return (
+		<ShowsSection
+			shows={normalizedResults}
+			title={__('search.resultsFor', { query })}
+		/>
+	)
 }

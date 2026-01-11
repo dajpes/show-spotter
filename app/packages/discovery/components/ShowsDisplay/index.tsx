@@ -5,15 +5,20 @@ import ShowCard from '@/app/packages/discovery/components/ShowCard'
 import type { Show } from '@/app/packages/shared/api/schemas/shows'
 import ShowCardSkeleton from '../ShowCard/CardSkeleton'
 
-export function ShowsSection({ shows }: { shows: Show[] }) {
-	const __ = useTranslations()
+export function ShowsSection({
+	shows,
+	title,
+}: {
+	shows: Show[]
+	title?: string
+}) {
 	return (
 		<section className="mx-auto">
-			<h1 className="text-2xl font-bold mb-6">{__('shows.todaysShows')}</h1>
+			{title ? <h1 className="text-2xl font-bold mb-6">{title}</h1> : null}
 			<ul className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-				{shows.map((show) => (
+				{shows.map((show, index) => (
 					<li key={show.id}>
-						<ShowCard show={show} />
+						<ShowCard show={show} priority={index < 20} />
 					</li>
 				))}
 			</ul>
