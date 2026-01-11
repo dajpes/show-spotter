@@ -6,10 +6,10 @@ Deployment Link: https://show-spotter.vercel.app/
 
 ## Stack
 
-- Next.js 16
+- Next.js
 - TypeScript
 - Redux Toolkit + RTK Query for state/caching
-- Tailwind CSS 4
+- Tailwind
 - Zod for runtime validation
 - next-intl for i18n (English/Spanish)
 - Jest + React Testing Library

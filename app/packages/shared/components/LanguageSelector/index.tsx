@@ -7,7 +7,7 @@ import {
 	MenuItem,
 	MenuItems,
 } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/24/outline'
+import { CheckIcon } from '@heroicons/react/24/solid'
 import Cookies from 'js-cookie'
 import { useTranslations } from 'next-intl'
 
@@ -34,36 +34,26 @@ export default function LanguageSelector({
 			</MenuButton>
 			<MenuItems
 				anchor="bottom"
-				className="rounded-lg cursor-pointer bg-white dark:bg-gray-800"
+				className="rounded-lg cursor-pointer bg-stone-100 dark:bg-gray-800 border dark:border-0"
 			>
-				<MenuItem>
-					<Button
-						className="cursor-pointer data-focus:bg-blue-100 dark:data-focus:bg-blue-800 w-full p-2 flex gap-2 place-items-center"
-						onClick={() => changeLanguage('en')}
-					>
-						{__('languages.en')}
-						{currentLanguage === 'en' && (
-							<>
-								<span className="sr-only">{__('languages.selected')}</span>
-								<CheckIcon className="text-blue-600 w-5 h-5" />
-							</>
-						)}
-					</Button>
-				</MenuItem>
-				<MenuItem>
-					<Button
-						className="cursor-pointer data-focus:bg-blue-100 dark:data-focus:bg-blue-800 w-full p-2 flex gap-2 place-items-center"
-						onClick={() => changeLanguage('es')}
-					>
-						{__('languages.es')}
-						{currentLanguage === 'es' && (
-							<>
-								<span className="sr-only">{__('languages.selected')}</span>
-								<CheckIcon className="text-blue-600 w-5 h-5" />
-							</>
-						)}
-					</Button>
-				</MenuItem>
+				{['en', 'es'].map((language) => {
+					return (
+						<MenuItem key={language}>
+							<Button
+								className="cursor-pointer data-focus:bg-blue-100 dark:data-focus:bg-blue-800 w-full p-2 flex gap-2 place-items-center"
+								onClick={() => changeLanguage(language as languages)}
+							>
+								{__(`languages.${language}`)}
+								{currentLanguage === language && (
+									<>
+										<span className="sr-only">{__('languages.selected')}</span>
+										<CheckIcon className="fill-blue-600 w-5 h-5" />
+									</>
+								)}
+							</Button>
+						</MenuItem>
+					)
+				})}
 			</MenuItems>
 		</Menu>
 	)
