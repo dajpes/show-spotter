@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '@headlessui/react'
 import { HeartIcon as HeartOutline } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolid } from '@heroicons/react/24/solid'
 import { useTranslations } from 'next-intl'
@@ -13,7 +14,7 @@ export default function FavoriteButton({ show }: { show: Show }) {
 	const isFavorite = useSelector(selectIsFavorite(show.id))
 
 	return (
-		<button
+		<Button
 			type="button"
 			onClick={() => dispatch(toggleFavorite(show))}
 			aria-pressed={isFavorite}
@@ -29,6 +30,6 @@ export default function FavoriteButton({ show }: { show: Show }) {
 			) : (
 				<HeartOutline className="w-6 h-6" />
 			)}
-		</button>
+		</Button>
 	)
 }

@@ -55,7 +55,7 @@ export default function ShowCard({ show, priority = false }: ShowCardProps) {
 					{show.summary && (
 						<div className="mask-r-from-30% mt-auto">
 							<div
-								className="prose dark:prose-invert line-clamp-1 text-sm"
+								className="line-clamp-1 text-sm"
 								// biome-ignore lint/security/noDangerouslySetInnerHtml: API returns HTML in summary
 								dangerouslySetInnerHTML={{ __html: show.summary }}
 							/>

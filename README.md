@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ShowSpotter
 
-## Getting Started
+TV show discovery POC web app
 
-First, run the development server:
+Deployment Link: https://show-spotter.vercel.app/
+
+## Stack
+
+- Next.js 16
+- TypeScript
+- Redux Toolkit + RTK Query for state/caching
+- Tailwind CSS 4
+- Zod for runtime validation
+- next-intl for i18n (English/Spanish)
+- Jest + React Testing Library
+- Storybook for component documentation and engineering processes
+
+## What it does
+
+- Browse shows
+- Search for specific ones
+- Save favorites
+
+Favorites persist to localStorage and the middleware only writes when favorites actually change (not on every Redux action). Search is debounced. Images lazy load with priority hints for above-the-fold content.
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then click the following url: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+For tests: `npm test`  
+For linting: `npm run lint`  
+For Storybook: `npm run storybook`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## API
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All show data comes from https://www.tvmaze.com/api - no auth needed.

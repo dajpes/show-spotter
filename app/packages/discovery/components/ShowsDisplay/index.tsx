@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '@headlessui/react'
 import { useTranslations } from 'next-intl'
 import ShowCard from '@/app/packages/discovery/components/ShowCard'
 import type { Show } from '@/app/packages/shared/api/schemas/shows'
@@ -42,13 +43,13 @@ export function ShowsError({ onRetry }: { onRetry: () => void }) {
 			<h2 className="text-xl font-semibold text-red-600">
 				{__('shows.error.title')}
 			</h2>
-			<button
+			<Button
 				type="button"
 				onClick={onRetry}
 				className="cursor-pointer bg-blue-600 px-4 py-2 rounded-lg text-white hover:bg-blue-700 transition-colors"
 			>
 				{__('shows.error.button')}
-			</button>
+			</Button>
 		</div>
 	)
 }

@@ -24,7 +24,7 @@ export default function BrowseShows() {
 
 	const [hasMore, setHasMore] = useState(true)
 
-	const { data, isLoading, isFetching, isSuccess, error } =
+	const { data, isLoading, isFetching, isSuccess, error, refetch } =
 		useGetShowsQuery(page)
 
 	const observerRef = useRef<IntersectionObserver | null>(null)
@@ -59,7 +59,7 @@ export default function BrowseShows() {
 
 	if (isLoading) return <ShowsPageLoading />
 
-	if (error) return <ShowsError onRetry={() => setPage(INITIAL_PAGE)} />
+	if (error) return <ShowsError onRetry={() => refetch()} />
 
 	if (isSuccess && data.length === 0) return <NoShowsFound />
 

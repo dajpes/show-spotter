@@ -61,7 +61,7 @@ export default function ShowDetails({ show }: ShowDetailsViewProps) {
 
 					{show.summary && (
 						<div
-							className="prose dark:prose-invert max-w-none mb-6"
+							className="mt-6 mb-10"
 							// biome-ignore lint/security/noDangerouslySetInnerHtml: API returns HTML in summary
 							dangerouslySetInnerHTML={{ __html: show.summary }}
 						/>
