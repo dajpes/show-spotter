@@ -12,5 +12,10 @@
 		"en": "English",
 		"es": "Español",
 		"selected": "Seleccionado"
+	},
+	"error": {
+		"pageNotFound": "Página No Encontrada",
+		"pageNotFoundHint": "La página que buscas no existe o ha sido movida.",
+		"backToHome": "Volver al Inicio"
 	}
 }
