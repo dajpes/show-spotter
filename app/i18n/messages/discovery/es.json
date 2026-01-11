@@ -33,10 +33,13 @@
 		"streaming": "Streaming",
 		"schedule": "Horario",
 		"premiered": "Estreno",
-		"runtime": "Duración",
 		"officialSite": "Sitio Oficial",
 		"visitSite": "Visitar Sitio",
 		"notFound": "Serie No Encontrada",
-		"notFoundDesc": "La serie que buscas no existe."
+		"notFoundDesc": "La serie que buscas no existe.",
+		"runtime": {
+			"title": "Duración",
+			"duration": "{duration} min"
+		}
 	}
 }

@@ -42,12 +42,12 @@ export default function ShowDetails({ show }: ShowDetailsViewProps) {
 					)}
 				</div>
 
-				<div>
-					<h1 className="text-3xl font-bold mb-2">{show.name}</h1>
+				<div className="flex flex-col space-y-3">
+					<h1 className="text-3xl font-bold">{show.name}</h1>
 
-					<div className="flex flex-wrap gap-2 mb-4">
+					<div className="flex flex-wrap gap-2">
 						<ShowType type={show.type} />
-						<span className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm">
+						<span className="px-3 py-1 bg-gray-300 text-gray-700 rounded-full text-sm">
 							{show.status}
 						</span>
 						{show.rating.average && <Rating rating={show.rating.average} />}
@@ -62,70 +62,80 @@ export default function ShowDetails({ show }: ShowDetailsViewProps) {
 							dangerouslySetInnerHTML={{ __html: show.summary }}
 						/>
 					)}
-
-					<dl className="grid grid-cols-2 gap-4 text-sm">
-						{show.network && (
-							<div>
-								<dt className="text-muted-foreground">
-									{__('showDetails.network')}
-								</dt>
-								<dd className="font-medium">{show.network.name}</dd>
-							</div>
-						)}
-						{show.webChannel && (
-							<div>
-								<dt className="text-muted-foreground">
-									{__('showDetails.streaming')}
-								</dt>
-								<dd className="font-medium">{show.webChannel.name}</dd>
-							</div>
-						)}
-						{show.schedule.time && (
-							<div>
-								<dt className="text-muted-foreground">
-									{__('showDetails.schedule')}
-								</dt>
-								<dd className="font-medium">
-									{show.schedule.days.join(', ')} @ {show.schedule.time}
-								</dd>
-							</div>
-						)}
-						{show.premiered && (
-							<div>
-								<dt className="text-muted-foreground">
-									{__('showDetails.premiered')}
-								</dt>
-								<dd className="font-medium">{show.premiered}</dd>
-							</div>
-						)}
-						{show.runtime && (
-							<div>
-								<dt className="text-muted-foreground">
-									{__('showDetails.runtime')}
-								</dt>
-								<dd className="font-medium">{show.runtime} min</dd>
-							</div>
-						)}
-						{show.officialSite && (
-							<div>
-								<dt className="text-muted-foreground">
-									{__('showDetails.officialSite')}
-								</dt>
-								<dd>
-									<a
-										href={show.officialSite}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="text-primary hover:underline"
-									>
-										{__('showDetails.visitSite')}
-									</a>
-								</dd>
-							</div>
-						)}
-					</dl>
+					<DetailedShowInfo show={show} />
 				</div>
 			</div>
 		</article>
+	)
+}
+
+const DetailedShowInfo = ({ show }: { show: ShowDetailsResponse }) => {
+	const __ = useTranslations()
+	const detailedList = [
+		{
+			key: 'network',
+			label: __('showDetails.network'),
+			value: show.network?.name,
+		},
+		{
+			key: 'streaming',
+			label: __('showDetails.streaming'),
+			value: show.webChannel?.name,
+		},
+		{
+			key: 'schedule',
+			label: __('showDetails.schedule'),
+			value:
+				show.schedule.time &&
+				`${show.schedule.days.join(', ')} @ ${show.schedule.time}`,
+		},
+		{
+			key: 'premiered',
+			label: __('showDetails.premiered'),
+			value: show.premiered,
+		},
+		{
+			key: 'runtime',
+			label: __('showDetails.runtime.title'),
+			value:
+				show.runtime &&
+				__('showDetails.runtime.duration', { duration: show.runtime }),
+		},
+		{
+			key: 'officialSite',
+			label: __('showDetails.officialSite'),
+			value: show.officialSite && (
+				<a
+					href={show.officialSite}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-blue-700 hover:underline"
+				>
+					{__('showDetails.visitSite')}
+				</a>
+			),
+		},
+	]
+	return (
+		<dl className="grid grid-cols-2 gap-4 text-sm">
+			{detailedList.map(({ key, label, value }) => (
+				<DetailItem key={key} label={label} value={value} />
+			))}
+		</dl>
+	)
+}
+
+interface DetailItemProps {
+	label: string
+	value: React.ReactNode
+}
+
+function DetailItem({ label, value }: DetailItemProps) {
+	if (!value) return null
+	return (
+		<div>
+			<dt className="text-muted-foreground">{label}</dt>
+			<dd className="font-medium">{value}</dd>
+		</div>
 	)
 }

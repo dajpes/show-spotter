@@ -33,10 +33,13 @@
 		"streaming": "Streaming",
 		"schedule": "Schedule",
 		"premiered": "Premiered",
-		"runtime": "Runtime",
 		"officialSite": "Official Site",
 		"visitSite": "Visit Website",
 		"notFound": "Show Not Found",
-		"notFoundDesc": "The show you're looking for doesn't exist."
+		"notFoundDesc": "The show you're looking for doesn't exist.",
+		"runtime": {
+			"title": "Runtime",
+			"duration": "{duration} min"
+		}
 	}
 }
