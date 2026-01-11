@@ -21,7 +21,7 @@ export default function ShowDetails({ show }: ShowDetailsViewProps) {
 		<article className="max-w-4xl mx-auto">
 			<Link
 				href="/"
-				className="inline-flex items-center gap-2 text-primary hover:underline mb-6"
+				className="inline-flex items-center gap-2 text-primary hover:underline mb-6 focusable rounded-lg"
 			>
 				<ArrowLongLeftIcon className="w-5 h-5" />
 				{__('showDetails.backToShows')}
@@ -113,7 +113,7 @@ const DetailedShowInfo = ({ show }: { show: ShowDetailsResponse }) => {
 					href={show.officialSite}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-700 hover:underline"
+					className="text-blue-700 hover:underline focusable"
 				>
 					{__('showDetails.visitSite')}
 				</a>

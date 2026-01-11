@@ -12,7 +12,7 @@ export default function FavoritesLink() {
 	return (
 		<Link
 			href="/favorites"
-			className="relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+			className="relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focusable"
 			aria-label={__('favorites.title')}
 		>
 			{count > 0 ? (

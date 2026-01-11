@@ -29,16 +29,16 @@ export default function LanguageSelector({
 
 	return (
 		<Menu>
-			<MenuButton className="ui-button rounded-lg p-2">
+			<MenuButton className="cursor-pointer rounded-lg p-2 focusable">
 				{__('languages.select')}
 			</MenuButton>
 			<MenuItems
 				anchor="bottom"
-				className="rounded-lg ui-button bg-white dark:bg-gray-800"
+				className="rounded-lg cursor-pointer bg-white dark:bg-gray-800"
 			>
 				<MenuItem>
 					<Button
-						className="ui-button data-focus:bg-blue-100 dark:data-focus:bg-blue-800 w-full p-2 flex gap-2 place-items-center"
+						className="cursor-pointer data-focus:bg-blue-100 dark:data-focus:bg-blue-800 w-full p-2 flex gap-2 place-items-center"
 						onClick={() => changeLanguage('en')}
 					>
 						{__('languages.en')}
@@ -52,7 +52,7 @@ export default function LanguageSelector({
 				</MenuItem>
 				<MenuItem>
 					<Button
-						className="ui-button data-focus:bg-blue-100 dark:data-focus:bg-blue-800 w-full p-2 flex gap-2 place-items-center"
+						className="cursor-pointer data-focus:bg-blue-100 dark:data-focus:bg-blue-800 w-full p-2 flex gap-2 place-items-center"
 						onClick={() => changeLanguage('es')}
 					>
 						{__('languages.es')}

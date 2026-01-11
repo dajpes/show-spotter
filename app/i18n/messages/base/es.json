@@ -1,7 +1,6 @@
 {
 	"base": {
-		"ok": "Ok",
-		"error": "Error"
+		"builtBy": "Hecho por Damian Perez"
 	},
 	"theme": {
 		"light": "Claro",

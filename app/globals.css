@@ -7,8 +7,8 @@
 
 
 @layer affordances {
-	:where(.ui-button) {
-		@apply cursor-pointer focus:ring-2 focus:ring-primary focus:outline-none;
+	:where(.focusable) {
+		@apply focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500
 	}	
 }
 

@@ -17,7 +17,7 @@ export default function ThemeToggle() {
 		<Button
 			type="button"
 			onClick={toggleTheme}
-			className="rounded-lg p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 focus:ring-2 ui-button"
+			className="rounded-lg p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer focusable"
 			aria-label={__('theme.toggle', { themeName: NextTheme() })}
 		>
 			{theme === 'light' ? (

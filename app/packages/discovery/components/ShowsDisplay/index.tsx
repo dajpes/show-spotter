@@ -45,7 +45,7 @@ export function ShowsError({ onRetry }: { onRetry: () => void }) {
 			<button
 				type="button"
 				onClick={onRetry}
-				className="ui-button bg-blue-600 px-4 py-2 rounded-lg text-white hover:bg-blue-700 transition-colors"
+				className="cursor-pointer bg-blue-600 px-4 py-2 rounded-lg text-white hover:bg-blue-700 transition-colors"
 			>
 				{__('shows.error.button')}
 			</button>

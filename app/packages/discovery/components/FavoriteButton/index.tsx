@@ -22,7 +22,7 @@ export default function FavoriteButton({ show }: { show: Show }) {
 					? __('favorites.remove', { show: show.name })
 					: __('favorites.add', { show: show.name })
 			}
-			className="p-2 rounded-full bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800 transition-colors shadow-md cursor-pointer"
+			className="p-2 rounded-full bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800 transition-colors shadow-md cursor-pointer focusable"
 		>
 			{isFavorite ? (
 				<HeartSolid className="w-6 h-6 fill-red-500" />

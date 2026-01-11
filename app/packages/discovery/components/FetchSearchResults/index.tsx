@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
-import { useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useSearchShowsQuery } from '@/app/store/api'
 import { ShowsError, ShowsPageLoading, ShowsSection } from '../ShowsDisplay'
 
@@ -24,12 +24,6 @@ export default function FetchSearchResults() {
 		() => results?.map(({ show }) => show) ?? [],
 		[results],
 	)
-
-	useEffect(() => {
-		if (query) {
-			document.title = `${__('search.resultsFor', { query })} | ShowSpotter`
-		}
-	}, [query, __])
 
 	if (!query) {
 		return (

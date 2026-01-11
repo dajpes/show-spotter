@@ -1,7 +1,6 @@
 {
 	"base": {
-		"ok": "Ok",
-		"error": "Error"
+		"builtBy": "Built by Damian Perez"
 	},
 	"theme": {
 		"light": "Light",

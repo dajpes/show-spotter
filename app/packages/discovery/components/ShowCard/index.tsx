@@ -15,8 +15,11 @@ export default function ShowCard({ show, priority = false }: ShowCardProps) {
 	const __ = useTranslations()
 
 	return (
-		<div className="group rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-shadow duration-300 h-100">
-			<Link href={`/show/${show.id}`} className="flex flex-col h-full">
+		<div className="group rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-shadow duration-300 h-100">
+			<Link
+				href={`/show/${show.id}`}
+				className="flex flex-col h-full rounded-lg focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500 overflow-hidden"
+			>
 				<div className="aspect-square relative overflow-hidden">
 					{show.image?.medium ? (
 						<Image
