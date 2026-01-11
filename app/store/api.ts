@@ -1,20 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { config } from '@/app/config'
 import type { ShowDetailsResponse } from '@/app/packages/shared/api/schemas/showDetails'
-
-interface Show {
-	id: number
-	name: string
-	genres: string[]
-	image: {
-		medium: string
-		original: string
-	} | null
-	summary: string
-	rating: {
-		average: number | null
-	}
-}
+import type { Show } from '@/app/packages/shared/api/schemas/shows'
 
 interface SearchResult {
 	score: number
@@ -29,8 +16,8 @@ export const api = createApi({
 			query: (searchTerm) =>
 				`/search/shows?q=${encodeURIComponent(searchTerm)}`,
 		}),
-		shows: builder.query<SearchResult[], void>({
-			query: () => `/schedule/web?country=US`,
+		getShows: builder.query<Show[], number>({
+			query: (page) => `/shows?page=${page}`,
 		}),
 		getShowById: builder.query<ShowDetailsResponse, string>({
 			query: (id) => `/shows/${id}`,
@@ -38,4 +25,5 @@ export const api = createApi({
 	}),
 })
 
-export const { useSearchShowsQuery, useGetShowByIdQuery } = api
+export const { useSearchShowsQuery, useGetShowsQuery, useGetShowByIdQuery } =
+	api

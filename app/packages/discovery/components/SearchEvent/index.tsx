@@ -1,23 +1,23 @@
 'use client'
 
 import { Button } from '@headlessui/react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { type FormEvent, useState } from 'react'
 
-interface Props {
-	onSubmit?: (query: string) => void
-}
-
-export default function SearchEvent({ onSubmit }: Props) {
+export default function SearchEvent() {
 	const __ = useTranslations()
-	const [searchQuery, setSearchQuery] = useState('')
+	const router = useRouter()
+	const searchParams = useSearchParams()
+	const query = searchParams.get('q') ?? ''
+
+	const [searchQuery, setSearchQuery] = useState(query)
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		if (onSubmit) {
-			onSubmit(searchQuery)
+		if (searchQuery.trim()) {
+			router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
 		}
-		console.log('Search query:', searchQuery)
 	}
 
 	return (

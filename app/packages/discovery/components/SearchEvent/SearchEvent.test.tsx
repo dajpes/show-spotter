@@ -1,35 +1,36 @@
-import { render, screen } from '@/app/packages/shared/testUtils'
+import { mockRouterPush, render, screen } from '@/app/packages/shared/testUtils'
 import SearchEvent from './index'
 
 describe('SearchEvent', () => {
+	beforeEach(() => {
+		mockRouterPush.mockClear()
+	})
+
 	it('renders the search input with correct placeholder', () => {
 		render(<SearchEvent />)
 		const input = screen.getByRole('textbox', { name: /search/i })
 		expect(input.getAttribute('placeholder')).toMatch(/TV Shows/)
 	})
 
-	it('calls onSubmit with search query on form submit', async () => {
-		const handleSubmit = jest.fn()
-		const { user } = render(<SearchEvent onSubmit={handleSubmit} />)
+	it('calls router.push with search query on form submit', async () => {
+		const { user } = render(<SearchEvent />)
 
 		const input = screen.getByPlaceholderText(/TV Shows/) as HTMLInputElement
-
 		const button = screen.getByRole('button', { name: /search/i })
 
 		await user.type(input, 'Breaking Bad')
 		await user.click(button)
 
-		expect(handleSubmit).toHaveBeenCalledWith('Breaking Bad')
+		expect(mockRouterPush).toHaveBeenCalledWith('/search?q=Breaking%20Bad')
 	})
 
-	it('submits form when Enter key is pressed', async () => {
-		const handleSubmit = jest.fn()
-		const { user } = render(<SearchEvent onSubmit={handleSubmit} />)
+	it('calls router.push when Enter key is pressed', async () => {
+		const { user } = render(<SearchEvent />)
 
 		const input = screen.getByPlaceholderText(/TV Shows/) as HTMLInputElement
 
 		await user.type(input, 'The Wire{Enter}')
 
-		expect(handleSubmit).toHaveBeenCalledWith('The Wire')
+		expect(mockRouterPush).toHaveBeenCalledWith('/search?q=The%20Wire')
 	})
 })

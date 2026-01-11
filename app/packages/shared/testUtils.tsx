@@ -23,4 +23,8 @@ const render = (Component: React.ReactNode, options?: RenderOptions) => {
 	}
 }
 
-export { render, screen, userEvent }
+// Access the global mockRouterPush from jest.setup.ts
+const mockRouterPush = (global as Record<string, unknown>)
+	.mockRouterPush as jest.Mock
+
+export { render, screen, userEvent, mockRouterPush }

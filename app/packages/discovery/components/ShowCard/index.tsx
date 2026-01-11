@@ -1,24 +1,29 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import type { ScheduleItem } from '@/app/packages/shared/api/schemas/shows'
+import type { Show } from '@/app/packages/shared/api/schemas/shows'
+import Genres from '../Genres'
+import Rating from '../Rating'
+import ShowTypeBadge from '../ShowType'
 
 interface ShowCardProps {
-	item: ScheduleItem
+	show: Show
 }
 
-export default function ShowCard({ item }: ShowCardProps) {
-	const show = item._embedded.show
+export default function ShowCard({ show }: ShowCardProps) {
 	const __ = useTranslations()
 
 	return (
-		<div className="group rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-shadow duration-300">
-			<Link href={`/show/${show.id}`} className="block">
+		<div className="group rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-shadow duration-300 h-100">
+			<Link href={`/show/${show.id}`} className="flex flex-col h-full">
 				<div className="aspect-square relative overflow-hidden">
-					{show.image?.original ? (
-						<img
-							src={show.image.original}
+					{show.image?.medium ? (
+						<Image
+							src={show.image.medium}
 							alt=""
-							className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+							fill
+							loading="lazy"
+							className="object-cover group-hover:scale-105 transition-transform duration-300"
 						/>
 					) : (
 						<div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
@@ -27,32 +32,31 @@ export default function ShowCard({ item }: ShowCardProps) {
 							</span>
 						</div>
 					)}
+					<div className="absolute top-2 right-0 flex w-full justify-between px-2">
+						<ShowTypeBadge type={show.type} />
+						{show.rating?.average && (
+							<div className="ml-auto">
+								<Rating rating={show.rating.average} />
+							</div>
+						)}
+					</div>
 				</div>
-				<div className="p-4">
+				<div className="p-4 flex flex-col gap-y-2 flex-1">
 					<h3 className="font-semibold text-foreground truncate ">
 						{show.name}
 					</h3>
-					<ShowTypeBadge type={show.type} />
+					<Genres genres={show.genres} />
+					{show.summary && (
+						<div className="mask-r-from-30% mt-auto">
+							<div
+								className="prose dark:prose-invert line-clamp-1 text-sm"
+								// biome-ignore lint/security/noDangerouslySetInnerHtml: API returns HTML in summary
+								dangerouslySetInnerHTML={{ __html: show.summary }}
+							/>
+						</div>
+					)}
 				</div>
 			</Link>
 		</div>
-	)
-}
-
-const ShowTypeBadge = ({ type }: { type: string }) => {
-	const getTypeColors =
-		{
-			News: 'bg-primary/20 text-primary',
-			Scripted: 'bg-secondary/20 text-secondary ',
-			Animation: 'bg-tertiary/20 text-tertiary',
-			'Game Show': 'bg-tertiary/20 text-tertiary',
-		}[type] ?? null
-
-	return (
-		<span
-			className={`inline-block mt-2 px-2 py-1 text-xs font-medium rounded-full ${getTypeColors}`}
-		>
-			{type}
-		</span>
 	)
 }

@@ -6,7 +6,7 @@ const args = {
 		id: 1,
 		name: 'Show Name',
 		url: 'https://example.com',
-		type: 'Type',
+		type: 'Animation',
 		language: 'en',
 		ended: 'none',
 		status: 'Running',

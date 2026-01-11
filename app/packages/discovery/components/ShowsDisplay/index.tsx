@@ -2,17 +2,18 @@
 
 import { useTranslations } from 'next-intl'
 import ShowCard from '@/app/packages/discovery/components/ShowCard'
-import type { ScheduleResponse } from '@/app/packages/shared/api/schemas/shows'
+import type { Show } from '@/app/packages/shared/api/schemas/shows'
+import ShowCardSkeleton from '../ShowCard/CardSkeleton'
 
-export function ShowsSection({ shows }: { shows: ScheduleResponse }) {
+export function ShowsSection({ shows }: { shows: Show[] }) {
 	const __ = useTranslations()
 	return (
 		<section className="mx-auto">
 			<h1 className="text-2xl font-bold mb-6">{__('shows.todaysShows')}</h1>
 			<ul className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-				{shows.map((item) => (
-					<li key={item.id}>
-						<ShowCard item={item} />
+				{shows.map((show) => (
+					<li key={show.id}>
+						<ShowCard show={show} />
 					</li>
 				))}
 			</ul>
@@ -44,5 +45,36 @@ export function ShowsError({ onRetry }: { onRetry: () => void }) {
 				{__('shows.error.button')}
 			</button>
 		</div>
+	)
+}
+
+export function ShowsPageLoading({ title }: { title?: React.ReactNode }) {
+	const __ = useTranslations()
+	return (
+		<section
+			className="mx-auto flex flex-col gap-6"
+			aria-busy="true"
+			aria-label={__('shows.loading.ariaLabel')}
+		>
+			{title ? (
+				title
+			) : (
+				<div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-48 animate-pulse" />
+			)}
+			<ShowsCardsSkeletonList />
+		</section>
+	)
+}
+
+export function ShowsCardsSkeletonList() {
+	return (
+		<ul className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+			{Array.from({ length: 4 }).map((_, i) => (
+				// biome-ignore lint/suspicious/noArrayIndexKey: We can safely ignore this
+				<li key={i}>
+					<ShowCardSkeleton />
+				</li>
+			))}
+		</ul>
 	)
 }

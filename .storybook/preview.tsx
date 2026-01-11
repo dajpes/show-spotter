@@ -7,6 +7,13 @@ const messages = Object.assign({}, ...Object.values(translations))
 
 const preview: Preview = {
 	parameters: {
+		nextjs: {
+			appDirectory: true,
+			navigation: {
+				pathname: '/',
+				query: {},
+			},
+		},
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,

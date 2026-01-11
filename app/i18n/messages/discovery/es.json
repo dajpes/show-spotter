@@ -2,11 +2,17 @@
 	"search": {
 		"placeholder": "Series de TV",
 		"button": "Buscar",
-		"label": "Buscar series de TV"
+		"label": "Buscar series de TV",
+		"enterQuery": "Ingresa un término para buscar series",
+		"loadingResultsFor": "Cargando Resultados para \"{query}\"",
+		"resultsFor": "Resultados para \"{query}\"",
+		"noResults": "No se encontraron resultados para \"{query}\""
 	},
 	"shows": {
 		"notFound": "No se encontraron series",
 		"todaysShows": "Series de Hoy",
+		"browseShows": "Explorar Series",
+		"endOfList": "¡Has llegado al final!",
 		"error": {
 			"title": "Algo salió mal!",
 			"button": "Intentar Nuevamente"
@@ -17,6 +23,9 @@
 		"show": {
 			"noImage": "No hay imagen"
 		}
+	},
+	"rating": {
+		"description": "Rating"
 	},
 	"showDetails": {
 		"backToShows": "Volver a Series",

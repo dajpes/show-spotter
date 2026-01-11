@@ -1,6 +1,6 @@
-export default function CardSkeleton() {
+export default function ShowCardSkeleton() {
 	return (
-		<li className="rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md animate-pulse">
+		<div className="rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md animate-pulse">
 			<div className="block">
 				<div className="aspect-square bg-gray-200 dark:bg-gray-700" />
 				<div className="p-4">
@@ -8,6 +8,6 @@ export default function CardSkeleton() {
 					<div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-full w-16 mt-2" />
 				</div>
 			</div>
-		</li>
+		</div>
 	)
 }

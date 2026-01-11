@@ -1,11 +1,16 @@
 import { z } from 'zod'
 
-const ShowSchema = z.object({
+export const ShowSchema = z.object({
 	id: z.number(),
 	name: z.string(),
 	type: z.string(),
 	genres: z.array(z.string()),
 	status: z.string(),
+	rating: z
+		.object({
+			average: z.number().nullable(),
+		})
+		.optional(),
 	image: z
 		.object({
 			medium: z.string(),
@@ -29,7 +34,9 @@ const ScheduleItemSchema = z.object({
 })
 
 export const ScheduleResponseSchema = z.array(ScheduleItemSchema)
+export const ShowsPageSchema = z.array(ShowSchema)
 
 export type Show = z.infer<typeof ShowSchema>
 export type ScheduleItem = z.infer<typeof ScheduleItemSchema>
 export type ScheduleResponse = z.infer<typeof ScheduleResponseSchema>
+export type ShowsPage = z.infer<typeof ShowsPageSchema>

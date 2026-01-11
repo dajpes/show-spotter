@@ -2,11 +2,17 @@
 	"search": {
 		"placeholder": "TV Shows",
 		"button": "Search",
-		"label": "Search for TV shows"
+		"label": "Search for TV shows",
+		"enterQuery": "Enter a search term to find shows",
+		"loadingResultsFor": "Loading Results for \"{query}\"",
+		"resultsFor": "Results for \"{query}\"",
+		"noResults": "No results found for \"{query}\""
 	},
 	"shows": {
 		"notFound": "No shows found",
 		"todaysShows": "Today's Shows",
+		"browseShows": "Browse Shows",
+		"endOfList": "You've reached the end!",
 		"error": {
 			"title": "Something went Wrong!",
 			"button": "Try Again"
@@ -17,6 +23,9 @@
 		"show": {
 			"noImage": "No Image"
 		}
+	},
+	"rating": {
+		"description": "Rating"
 	},
 	"showDetails": {
 		"backToShows": "Back to Shows",

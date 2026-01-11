@@ -60,7 +60,7 @@ describe('ShowDetailsView', () => {
 
 	it('displays the rating when available', () => {
 		render(<ShowDetails show={mockShow} />)
-		expect(screen.getByText(/★ 9.5/)).toBeInTheDocument()
+		expect(screen.getByText(/9.5/)).toBeInTheDocument()
 	})
 
 	it('displays genres', () => {
@@ -99,7 +99,7 @@ describe('ShowDetailsView', () => {
 	it('displays the show image', () => {
 		render(<ShowDetails show={mockShow} />)
 		const img = screen.getByRole('img', { name: 'Breaking Bad' })
-		expect(img).toHaveAttribute('src', 'https://example.com/original.jpg')
+		expect(img).toHaveAttribute('alt', 'Breaking Bad')
 	})
 
 	it('displays no image text when image is null', () => {

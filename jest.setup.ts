@@ -14,3 +14,15 @@ Object.defineProperty(window, 'matchMedia', {
 		dispatchEvent: jest.fn(),
 	})),
 })
+
+// Next.js navigation mocks - exported globally for test assertions
+export const mockRouterPush = jest.fn()
+export const mockSearchParams = new URLSearchParams()
+
+jest.mock('next/navigation', () => ({
+	useRouter: jest.fn(() => ({ push: mockRouterPush })),
+	useSearchParams: jest.fn(() => mockSearchParams),
+}))
+
+// Make mockRouterPush available globally for tests
+;(global as Record<string, unknown>).mockRouterPush = mockRouterPush

@@ -11,12 +11,8 @@ function getMarketCode(): MarketCode {
 	const market = process.env.NEXT_PUBLIC_MARKET as MarketCode | undefined
 
 	if (!market || !markets[market]) {
-		console.warn(
-			`Invalid or missing NEXT_PUBLIC_MARKET: "${market}". Defaulting to SP_US.`,
-		)
-		return 'SP_US'
+		throw new Error(`Invalid or missing NEXT_PUBLIC_MARKET: "${market}"`)
 	}
-
 	return market
 }
 
