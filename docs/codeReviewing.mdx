@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Processes/Code Reviewing" />
+
+# Code Reviewing Process
+
+Documenting our team standards for code reviews, version control, and release gates.
+
+## Jira Integration
+
+Every Pull Request correlates to a Jira User Story. This creates a traceable link between requirements and implementation.
+
+- **Branch Naming**: Prefix branches with the ticket ID (e.g., `SP-5`).
+- **PR Title**: Start with the Jira ID (e.g., `SP-5: Add Favorites Functionality`).
+- **PR Message**: Please follow the instructions set in the PR template.
+
+## Trunk-Based Development
+
+We follow a Trunk-Based Development strategy.
+
+- **Main Branch**: The `main` branch is the single source of truth. It must essentially be deployable at any time.
+- **Short-Lived Branches**: Feature branches should be merged back into `main` frequently to minimize merge conflicts.
+
+## Approval Workflow
+
+We enforce strict gates to maintain stability in `main`:
+
+1.  **Peer Review**: A minimum of **two approvals** from engineering peers are required.
+2.  **QA Sign-off**: After code approval, the ticket enters QA validation.
+    - Merging to `main` happens **only after** QA explicitly marks the ticket as verified. Product and / or design can also provide further input before merging.
+    - If issues are found, fixes are committed to the existing feature branch.
+
+## Review Checklist
+
+Key areas to focus on during review:
+
+- **Logic**: Does the code solve the problem correctly?
+- **Architecture**: Adherence to project patterns (Redux usage, folder structure).
+- **Performance**: Avoiding unnecessary re-renders or heavy computations.
+- **Readability**: Variable naming and code structure.
+- **Testing**: Presence of unit/integration tests for new logic.
