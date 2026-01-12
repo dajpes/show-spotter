@@ -9,6 +9,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "biome check --write --error-on-warnings",
+		"lint:ci": "biome ci --error-on-warnings",
 		"circular-deps": "depcruise --validate .dependency-cruiser.cjs .",
 		"test": "jest",
 		"test:watch": "jest --watch",
